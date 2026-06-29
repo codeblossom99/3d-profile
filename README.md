@@ -4,9 +4,9 @@ A jaw-dropping developer portfolio packed with interactive 3D animations, butter
 
 > **Free to use!** This portfolio is open source. If you use it, a credit/link back would be really appreciated 🙏
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Naresh-Khatri/3d-portfolio)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/codeblossom99/3d-profile)
 
-![Portfolio Preview](https://github.com/Naresh-Khatri/Portfolio/blob/main/public/assets/projects-screenshots/portfolio/landing.png?raw=true)
+![Portfolio Preview](https://github.com/codeblossom99/3d-profile/blob/main/public/assets/projects-screenshots/portfolio/landing.png?raw=true)
 
 ## ✨ Features
 
@@ -43,8 +43,8 @@ A jaw-dropping developer portfolio packed with interactive 3D animations, butter
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/Naresh-Khatri/3d-portfolio.git
-    cd 3d-portfolio
+    git clone https://github.com/codeblossom99/3d-profile.git
+    cd 3d-profile
     ```
 
 2. **Install dependencies:**
@@ -162,7 +162,7 @@ These features activate automatically when the `NEXT_PUBLIC_WS_URL` environment 
 
 ## 🚀 Deployment
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Naresh-Khatri/3d-portfolio)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/codeblossom99/3d-profile)
 
 This site is deployed on **Vercel**. To deploy your own:
 
