@@ -13,8 +13,9 @@ import HeroSection from "@/components/sections/hero";
 function MainPage() {
   return (
     <SmoothScroll>
+      <div className="glass-bead-backdrop" aria-hidden="true" />
       <AnimatedBackground />
-      <main className={cn("bg-slate-100 dark:bg-transparent canvas-overlay-mode")}>
+      <main className={cn("relative z-[2] bg-transparent canvas-overlay-mode")}>
         <HeroSection />
         <SkillsSection />
         <ExperienceSection />

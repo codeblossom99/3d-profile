@@ -36,7 +36,7 @@ const HeroSection = () => {
                 <BlurIn delay={0.7}>
                   <p
                     className={cn(
-                      "md:self-start mt-4 font-medium text-md text-slate-500 dark:text-zinc-400",
+                      "md:self-start mt-4 font-medium text-md text-slate-500 dark:text-cyan-100/70",
                       "cursor-default sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
                     )}
                   >
@@ -50,9 +50,9 @@ const HeroSection = () => {
                     <TooltipTrigger asChild>
                       <h1
                         className={cn(
-                          "-ml-[6px] leading-none text-transparent text-slate-800 text-left",
+                          "-ml-[6px] leading-none text-left text-slate-950 dark:text-white",
                           "font-bold text-7xl md:text-7xl lg:text-8xl xl:text-9xl",
-                          "cursor-default text-edge-outline font-display "
+                          "cursor-default font-display glass-bead-hero-title"
                         )}
                       >
                         {config.author.split(" ")[0]}
@@ -72,7 +72,7 @@ const HeroSection = () => {
                 <BlurIn delay={1.2}>
                   <p
                     className={cn(
-                      "md:self-start md:mt-4 font-medium text-md text-slate-500 dark:text-zinc-400",
+                      "md:self-start md:mt-4 font-medium text-md text-slate-500 dark:text-cyan-100/70",
                       "cursor-default sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
                     )}
                   >

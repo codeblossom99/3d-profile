@@ -15,6 +15,17 @@ import { usePerfProfile } from "@/hooks/use-perf-profile";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const GLASS_BEAD_COLORS = [
+  "#9be7ff",
+  "#b8f7d4",
+  "#ffd1e8",
+  "#d9c7ff",
+  "#ffe39b",
+  "#a7f3ff",
+  "#ffc6a8",
+  "#c8ffb3",
+];
+
 const KeyboardScene = ({ maxDpr }: { maxDpr: number }) => {
   const { isLoading, bypassLoading } = usePreloader();
   const { theme } = useTheme();
@@ -284,11 +295,56 @@ const KeyboardScene = ({ maxDpr }: { maxDpr: number }) => {
     });
   };
 
+  const applyGlassBeadTreatment = () => {
+    if (!splineApp) return;
+
+    const skillKeys = Object.values(SKILLS);
+    skillKeys.forEach((skill, idx) => {
+      const keycap = splineApp.findObjectByName(skill.name);
+      if (!keycap) return;
+
+      keycap.color = GLASS_BEAD_COLORS[idx % GLASS_BEAD_COLORS.length];
+
+      const materialTarget = keycap as unknown as {
+        material?: Record<string, unknown>;
+        children?: Array<{ material?: Record<string, unknown> }>;
+        traverse?: (cb: (child: { material?: Record<string, unknown> }) => void) => void;
+      };
+
+      const tuneMaterial = (material?: Record<string, unknown>) => {
+        if (!material) return;
+        material.transparent = true;
+        material.opacity = 0.58;
+        material.roughness = 0.08;
+        material.metalness = 0;
+        material.transmission = 0.72;
+        material.thickness = 1.2;
+        material.ior = 1.45;
+        material.reflectivity = 0.85;
+        material.clearcoat = 1;
+        material.clearcoatRoughness = 0.05;
+        material.envMapIntensity = 1.6;
+        material.needsUpdate = true;
+      };
+
+      tuneMaterial(materialTarget.material);
+      materialTarget.children?.forEach((child) => tuneMaterial(child.material));
+      materialTarget.traverse?.((child) => tuneMaterial(child.material));
+    });
+
+    ["platform", "body"].forEach((name) => {
+      const base = splineApp.findObjectByName(name);
+      if (!base) return;
+      base.color = "#05070c";
+    });
+  };
+
   // --- Effects ---
 
   // Initialize GSAP and Spline interactions
   useEffect(() => {
     if (!splineApp) return;
+    applyGlassBeadTreatment();
     handleSplineInteractions();
     const timelines = setupScrollAnimations();
     bongoAnimationRef.current = getBongoAnimation();
@@ -482,7 +538,7 @@ const KeyboardScene = ({ maxDpr }: { maxDpr: number }) => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Spline
-        className="w-full h-full fixed"
+        className="fixed inset-0 z-[1] h-full w-full"
         ref={splineContainer}
         onLoad={(app: Application) => {
           setSplineApp(app);
