@@ -33,9 +33,9 @@ const config = {
   },
   social: {
     twitter: "https://x.com/codeblossom99",
-    linkedin: "https://www.linkedin.com/in/tingenchen/",
-    instagram: "https://www.instagram.com/codeblossom99",
-    facebook: "https://www.facebook.com/codeblossom99",
+    linkedin: "https://www.linkedin.com/in/ting-en-chen/",
+    instagram: "https://www.instagram.com/tingen_1999",
+    facebook: "https://www.facebook.com/tingyan.chen.7",
     github: "https://github.com/codeblossom99",
   },
 };
